@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const api = require('./backend/routes');
+const config = require('./config')['database'];
 
 var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
@@ -22,7 +23,8 @@ app.listen(PORT, error => {
 });
 
 // Connection URL
-var url = 'mongodb://drawchange:gtbitsofgood@ds147304.mlab.com:47304/drawchange';
+var url = `mongodb://${config.username}:${config.password}@${config.host}:${config.port}/drawchange`;
+console.log(url);
 // Use connect method to connect to the Server
 MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
