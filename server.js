@@ -29,12 +29,12 @@ console.log(url);
 MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
   console.log("Connected correctly to MongoDB!!");
-  updateDocument(db, function() {
+  updateAdminPassword(db, function() {
     db.close();
   });
 });
 
-var updateDocument = function(db, callback) {
+var updateAdminPassword = function(db, callback) {
   // Get the documents collection
   var collection = db.collection('admin');
   // Update document where a is 2, set b equal to 1
