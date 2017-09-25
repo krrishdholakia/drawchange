@@ -1,3 +1,6 @@
+# Don't commit bundle
+public/bundle.js
+
 # Config
 config.js
 
