@@ -16,18 +16,26 @@ const items = [
   }
 ]
 
+function request() {
+  fetch().then((resp) => resp.json())
+}
+
+function _login() {
+  alert("HA")
+}
+
 const Login = ({userType, changeUserType}) => (
   <div className="jumbotron">
     <h1 className="display-3">{userType}</h1>
-    <p className="lead">
+    <div className="lead">
       Don't have an account?
       <Link to="/registration"> sign up </Link>
-    </p>
+    </div>
     <hr className="my-4"/>
-    <p className="lead d-flex">
+    <div className="lead d-flex">
       <button className="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#exampleModal">login</button>
 
-      <Modal title={`${userType} Login`} action="Login">
+      <Modal title={`${userType} Login`} action="Login" callback={_login}>
         <FormBody items={items}/>
       </Modal>
 
@@ -35,7 +43,7 @@ const Login = ({userType, changeUserType}) => (
          onClick={changeUserType}>
         Login as {userType === "Volunteer" ? "administrator" : "volunteer"}
       </button>
-    </p>
+    </div>
   </div>
 );
 

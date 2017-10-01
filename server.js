@@ -14,8 +14,32 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/public/index.html'); // For React/Redux
 });
 
-app.use('/api', api);
+// app.get('/api', api);
+app.get('/api', (req, res) => {
+  let email = req.query.email
+  let password = req.query.password
+  MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+    console.log("Connected correctly to MongoDB!!");
+    var collection = db.collection('volunteer');
+    res.setHeader('Content-Type', 'application/json');
 
+    var vol = collection.findOne({
+      email: email,
+      password: password
+    }).then(
+      (result) => {
+        console.log("resolving promise")
+        if (result) {
+          // res.send("{success: 'true'}")
+        } else {
+          // res.send("{success: 'false'}")
+        }
+        res.send("ha");
+      }
+    );
+  });
+})
 app.listen(PORT, error => {
     error
     ? console.error(error)
@@ -32,17 +56,7 @@ MongoClient.connect(url, function(err, db) {
 });
 
 var volunteerLogin = function(db, email, password, callback) {
-  var collection = db.collection('volunteer');
-  var vol = collection.findOne({
-    email: email,
-    password: password
-  });
 
-  if (vol) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 var updateAdminPassword = function(db, email, newPassword, callback) {
@@ -56,8 +70,8 @@ var updateAdminPassword = function(db, email, newPassword, callback) {
 var registerVolunteer = function(db, email, password, callback) {
   var collection = db.collection('volunteer');
   vol = collection.insertOne({
-    email: email, 
+    email: email,
     password: password
 });
-  
+
 }
