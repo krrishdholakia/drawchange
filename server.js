@@ -31,6 +31,20 @@ MongoClient.connect(url, function(err, db) {
   console.log("Connected correctly to MongoDB!!");
 });
 
+var volunteerLogin = function(db, email, password, callback) {
+  var collection = db.collection('volunteer');
+  var vol = collection.findOne({
+    email: email,
+    password: password
+  });
+
+  if (vol) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 var updateAdminPassword = function(db, email, newPassword, callback) {
   var collection = db.collection('admin');
   collection.updateOne({ email : email }
@@ -41,8 +55,9 @@ var updateAdminPassword = function(db, email, newPassword, callback) {
 
 var registerVolunteer = function(db, email, password, callback) {
   var collection = db.collection('volunteer');
-  collection.insertOne({
-      email: email, 
-      password: password
-  });
+  vol = collection.insertOne({
+    email: email, 
+    password: password
+});
+  
 }
