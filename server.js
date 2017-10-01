@@ -29,18 +29,20 @@ console.log(url);
 MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
   console.log("Connected correctly to MongoDB!!");
-  updateAdminPassword(db, function() {
-    db.close();
-  });
 });
 
-var updateAdminPassword = function(db, callback) {
-  // Get the documents collection
+var updateAdminPassword = function(db, email, newPassword, callback) {
   var collection = db.collection('admin');
-  // Update document where a is 2, set b equal to 1
-  collection.updateOne({ email : "admin@drawchange.org" }
-    , { $set: { password : "equifax" } }, function(err, result) {
-    console.log("Updated the admin password");
+  collection.updateOne({ email : email }
+    , { $set: { password : newPassword } }, function(err, result) {
     callback(result);
+  });
+}
+
+var registerVolunteer = function(db, email, password, callback) {
+  var collection = db.collection('volunteer');
+  collection.insertOne({
+      email: email, 
+      password: password
   });
 }
