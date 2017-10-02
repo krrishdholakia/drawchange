@@ -10,14 +10,16 @@ export default class Modal extends React.Component {
   }
 
   _login() {
-    fetch(`/api?email=${this.email}&password=${this.password}`).then(
-      (result) => {
-        console.log(result)
-      }
-      // (success) => {
-      //   // alert("ice cream")
-      // }
-    )
+    console.log(this.email.value)
+    console.log(this.password.value)
+
+    fetch(`/api?email=${this.email.value}&password=${this.password.value}`).then((res) => {
+        return res.json()
+      }).then((json) => {
+        if (json.success === "true") {
+          window.location.href ="/dashboard"
+        }
+      })
   }
 
   render() {
@@ -38,7 +40,7 @@ export default class Modal extends React.Component {
 
               <div className="form-group">
                 <label>Username</label>
-                <input type="username" className="form-control" id="password" placeholder="username" ref={(ref) => {this.username = ref}}/>
+                <input type="username" className="form-control" id="username" placeholder="username" ref={(ref) => {this.email = ref}}/>
               </div>
               <div className="form-group">
                 <label>Password</label>

@@ -10,10 +10,6 @@ var MongoClient = require('mongodb').MongoClient
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/public/index.html'); // For React/Redux
-});
-
 // app.get('/api', api);
 app.get('/api', (req, res) => {
   let email = req.query.email
@@ -29,17 +25,23 @@ app.get('/api', (req, res) => {
       password: password
     }).then(
       (result) => {
-        console.log("resolving promise")
+        console.log(result)
         if (result) {
-          // res.send("{success: 'true'}")
+          res.send({success: 'true'})
         } else {
-          // res.send("{success: 'false'}")
+          res.send({success: 'false'})
         }
-        res.send("ha");
       }
     );
   });
 })
+
+
+app.get('/*', (request, response) => {
+    response.sendFile(__dirname + '/public/index.html'); // For React/Redux
+});
+
+
 app.listen(PORT, error => {
     error
     ? console.error(error)

@@ -4,6 +4,7 @@ import NavBar from './NavBar'
 import Login from '../containers/Login'
 import Main from './Main'
 import Registration from '../containers/Registration'
+import Dashboard from  './Dashboard'
 
 const App = ({children}) => (
   <div>
@@ -12,7 +13,7 @@ const App = ({children}) => (
     	<Switch>
           <Route exact path="/" component={Login}/>
           <Route path="/registration" component={Registration}/>
-          <Route path="/volunteer" component={Main}/>
+          <Route path="/dashboard" component={Dashboard}/>
           <Route path="/admin" component={Main}/>
         </Switch>
     </Main>
