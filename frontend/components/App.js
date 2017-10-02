@@ -1,23 +1,20 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import NavBar from './NavBar'
-import Login from '../containers/Login'
-import Main from './Main'
-import Registration from '../containers/Registration'
-import Dashboard from  './Dashboard'
+import React, { Component } from 'react';
+import { Route } from 'react-router'
+import { Navbar, Button, Nav, NavItem} from 'react-bootstrap';
+import Home from './Home'
 
-const App = ({children}) => (
-  <div>
-    <NavBar/>
-    <Main>
-    	<Switch>
-          <Route exact path="/" component={Login}/>
-          <Route path="/registration" component={Registration}/>
-          <Route path="/dashboard" component={Dashboard}/>
-          <Route path="/admin" component={Main}/>
-        </Switch>
-    </Main>
-  </div>
+const App  = () => (
+    <div>
+        <Navbar fluid>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="">Drawchange</a>
+            </Navbar.Brand>
+          </Navbar.Header>
+          <Nav/>
+        </Navbar>
+        <Route path='/home' component={Home}/>
+    </div>
 )
 
 export default App;

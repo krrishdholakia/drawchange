@@ -1,9 +1,6 @@
 # Don't commit bundle
 public/bundle.js
 
-# Config
-config.js
-
 # Logs
 logs
 *.log
@@ -62,4 +59,3 @@ typings/
 
 # dotenv environment variables file
 .env
-

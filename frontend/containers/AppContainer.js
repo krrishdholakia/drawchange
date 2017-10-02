@@ -1,30 +1,33 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { Router } from 'react-router';
+import history from './history'
 import App from '../components/App'
+import 'bootstrap/dist/css/bootstrap.css';
+import createHistory from 'history/createBrowserHistory'
 
 const AppContainer = () => {
-    return (
-      <BrowserRouter>
-        <App/>
-      </BrowserRouter>
-    );
+  return (
+      <Router history={createHistory()}>
+          <App />
+      </Router>
+  );
 };
 
 AppContainer.propTypes = {
-    name: PropTypes.string,
+  name: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
-    return {
-        name: state.name
-    };
+  return {
+    name: state.name
+  };
 };
 
 const mapDispatchToProps = (/* dispatch */) => {
-    return {
-    };
+  return {
+  };
 };
 
 export default connect(
