@@ -6,7 +6,7 @@ public/bundle.js
 
 # Hot-loader files
 public/*.js
-public/*.json
+public/*.hot-update.json
 
 # Logs
 logs
