@@ -6,8 +6,13 @@ import App from '../components/App'
 import 'bootstrap/dist/css/bootstrap.css';
 import createHistory from 'history/createBrowserHistory'
 
+const handleClick = () => {
+    console.log(localStorage);
+}
+
 const AppContainer = (props) => {
     let history = createHistory();
+
     return (
         <Router history={history}>
             <App history={history}/>
@@ -17,7 +22,6 @@ const AppContainer = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.currentUser
   };
 };
 

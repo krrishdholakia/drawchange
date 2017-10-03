@@ -11,6 +11,7 @@ class LoginModal extends Component {
 		// Input references
 		this.email;
 		this.password;
+		this.handleLoginResult = this.handleLoginResult.bind(this);
 		this.login = this.login.bind(this);
 	}
 
@@ -22,17 +23,20 @@ class LoginModal extends Component {
 		this.setState({ show: true });
 	};
 
+	handleLoginResult(json) {
+		if (json.success === "true") {
+			// Manage session
+			let expireAt = new Date().getTime() + 5 * 1000;
+			localStorage.setItem('expireAt', JSON.stringify(expireAt));
+			// Redirect
+			this.props.history.replace('/dashboard');
+		}
+	}
 	// Ajax calls
 	login() {
 		fetch(`/api/login/volunteer?email=${this.email.value}&password=${this.password.value}`)
         .then( (res) => res.json() )
-        .then(
-			(json) => {
-				if (json.success === "true") {
-					this.props.history.push('/dashboard');
-				}
-			}
-		)
+        .then( (json) => this.handleLoginResult(json) )
         .catch((err) => console.log(err));
 	}
 

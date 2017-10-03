@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Grid, Col, Jumbotron, Button } from 'react-bootstrap';
 import LoginModal from './LoginModal';
 
@@ -10,8 +10,8 @@ const Login = ({history}) => (
             <Jumbotron>
                 <h1>Volunteer</h1>
                 <p>
-                    Don't have an account?
-                    <Link to="/registration"> Sign Up </Link>
+                    Don't have an account?&ensp;
+                    <Link to='/registration'>Sign Up</Link>
                 </p>
               <LoginModal history={history}/>
           </Jumbotron>
