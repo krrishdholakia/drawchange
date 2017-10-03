@@ -1,19 +1,34 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router'
-import { Navbar, Button, Nav, NavItem} from 'react-bootstrap';
-import Home from './Home'
+import React from 'react';
+import { Route, Link, Redirect } from 'react-router-dom'
+import { Navbar } from 'react-bootstrap';
+import Login from './Login'
+import Registration from './Registration';
+import Dashboard from './Dashboard';
 
-const App  = () => (
+const App  = ({currentUser, history}) => (
     <div>
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="">Drawchange</a>
+              <Link to="/">Drawchange</Link>
             </Navbar.Brand>
           </Navbar.Header>
-          <Nav/>
         </Navbar>
-        <Route path='/home' component={Home}/>
+
+        <Route exact path='/' render={() => (
+            currentUser ? (
+                <Redirect to='/dashboard'/>
+            ) : (
+                <Redirect to='/login'/>
+            )
+        )}/>
+        <Route path='/dashboard' component={Dashboard}/>
+        <Route path='/login' render={() =>
+            <Login history={history}/>
+        }/>
+        <Route path='/registration' render={() =>
+            <Registration history={history}/>
+        }/>
     </div>
 )
 

@@ -1,6 +1,13 @@
 # Don't commit bundle
 public/bundle.js
 
+# macOS files
+*/.DS_Store
+
+# Hot-loader files
+public/*.js
+public/*.json
+
 # Logs
 logs
 *.log

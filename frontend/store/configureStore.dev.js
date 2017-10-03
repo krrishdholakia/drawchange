@@ -6,14 +6,15 @@ import DevTools from '../containers/DevTools'
 
 export function configureStore(initialState) {
     return createStore(
-      rootReducer, {
-        userType: "Volunteer"
-      },
-      compose(
+        rootReducer,
+        {
+            currentUser: ""
+        },
+        compose(
             DevTools.instrument()
-      ),
-      applyMiddleware(
-        thunkMiddleware
-      )
-  );
+        ),
+        applyMiddleware(
+            thunkMiddleware
+        )
+    );
 }
