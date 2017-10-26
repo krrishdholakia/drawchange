@@ -6,26 +6,26 @@ const eventSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  date: {
-    type: Date,
-    required: true
-  },
-  location: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true
-  },
-  contact: {
-    type: String,
-    required: true
-  },
-  volunteers: {
-    type: Array[ mongoose.Schema.Types.ObjectId ], // array of user objects
-    required: true
-  }
+//   date: {
+//     type: Date,
+//     required: true
+//   },
+//   location: {
+//     type: String,
+//     required: true
+//   },
+//   description: {
+//     type: String,
+//     required: true
+//   },
+//   contact: {
+//     type: String,
+//     required: true
+//   },
+//   volunteers: {
+//     type: Array, // array of user objects
+//     required: true
+//   }
 }, { timestamps: true });
 
 // export Event model to app

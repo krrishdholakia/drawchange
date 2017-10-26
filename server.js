@@ -31,5 +31,4 @@ app.listen(PORT, error => {
     : console.info(`==> 🌎 Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`);
 });
 
-
 module.exports = app;

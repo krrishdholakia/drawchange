@@ -44,16 +44,16 @@ const userSchema = mongoose.Schema({
     required: true
   },
   events: {
-    type: Array[ mongoose.Schema.Types.ObjectId ], // array of event objects
+    type: Array, // array of event objects
     required: true
   },
   surveys: {
-    type: Array[ mongoose.Schema.Types.ObjectId ] // array of Survey Objects
+    type: Array // array of Survey Objects
   }
 }, { timestamps: true });
 
 // export user model to app
-module.exports = mongoose.model('Users', userSchema);
+module.exports = mongoose.model('User', userSchema);
 
     // availability: {
     //     type: Array[String],
