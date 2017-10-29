@@ -13,25 +13,25 @@ const AppContainer = () => {
         {/* <Events/> */}
         <SurveyRead questions={[
           {
-            type: "checkbox",
+            type: "checkbox-type",
             text: "asdf",
             choices: ["sdfd", "sdf", "sdfe"],
             answer: "sdf"
           },
           {
-            type: "checkbox",
+            type: "text-type",
             text: "asdf",
-            choices: ["sdfd", "sdf", "sdfe"],
-            answer: "sdf"
+            choices: null,
+            answer: "chekc"
           },
           {
-            type: "checkbox",
+            type: "list-type",
             text: "asdf",
             choices: ["sdfd", "sdf", "sdfe"],
-            answer: "sdf"
+            answer: "s5df"
           },
           {
-            type: "checkbox",
+            type: "checkbox-type",
             text: "asdf",
             choices: ["sdfd", "sdf", "sdfe"],
             answer: "sdf"
