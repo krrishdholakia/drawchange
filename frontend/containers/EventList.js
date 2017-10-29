@@ -1,35 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../assets/stylesheets/eventpagestyle.css';
-import InlineEvent from '../components/InlineEvent.js'
+import InlineEvent from '../components/InlineEvent.js';
 
 class EventList extends React.Component {
 
-    componentWillMount() {
+  componentWillMount() {
         // dispatch an action to load data from DB
-    }
+  }
 
-        renderEvent() {
-            let eventmanager = []
+  renderEvent() {
+    const eventmanager = [];
 
-            for (let i = 0; i < 30; i++) {
-            eventmanager.push(
+    for (let i = 0; i < 30; i++) {
+      eventmanager.push(
             <div>
                 <InlineEvent number={i} updateFunc={this.props.update}/>
-            </div> )
-            }
+            </div> );
+    }
 
-            return eventmanager
-        }
+    return eventmanager;
+  }
 
-        render() {
-            return (
+  render() {
+    return (
                 <div className="boxedevent boxed">
                     {this.renderEvent()}
                 </div>
-            );
-        }
+    );
+  }
     }
 
 
-    export default EventList
+export default EventList;

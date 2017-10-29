@@ -6,12 +6,13 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.css';
 import Events from './Events.js';
 import SurveyRead from './SurveyRead.js';
-
+import SurveyCreate from './SurveyCreate.js';
 const AppContainer = () => {
   return (
       <BrowserRouter>
         {/* <Events/> */}
-        <SurveyRead questions={[
+        <SurveyCreate/>
+        {/* <SurveyRead questions={[
           {
             type: "checkbox-type",
             text: "asdf",
@@ -36,7 +37,7 @@ const AppContainer = () => {
             choices: ["sdfd", "sdf", "sdfe"],
             answer: "sdf"
           }
-        ]}/>
+        ]}/> */}
       </BrowserRouter>
   );
 };

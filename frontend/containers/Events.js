@@ -2,27 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import EventList from './EventList.js';
 import SideTable from '../components/SideTable.js';
-import '../assets/stylesheets/eventpagestyle.css'
+import '../assets/stylesheets/eventpagestyle.css';
 
 
 class Events extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            current: null
-        }
+  constructor() {
+    super();
+    this.state = {
+      current: null
+    };
 
-        this.updateCurrent = this.updateCurrent.bind(this);
-    }
+    this.updateCurrent = this.updateCurrent.bind(this);
+  }
 
-    updateCurrent(num) {
-        this.setState({current: num});
-    }
-    //functions
-    //render () {}
+  updateCurrent(num) {
+    this.setState({current: num});
+  }
+    // functions
+    // render () {}
 
-    render() {
-        return (
+  render() {
+    return (
             <div>
             <div className="event">
                 <div className="eventtitles">
@@ -41,8 +41,8 @@ class Events extends React.Component {
             </div>
 
 
-        );
-    }
+    );
+  }
 }
 
-export default Events
+export default Events;
