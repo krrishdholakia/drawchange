@@ -19,11 +19,19 @@ const NewQuestion = ({ type, name, choices, updateName, updateChoices, updateTyp
     <FormGroup>
       <DropDown
         value={type}
-        choices={['input', 'list']}
+        choices={['input', 'scale', 'multiple-choice', 'checkbox', 'date']}
         question={"Type of Question?"}
         handleChange={updateType}/>
     </FormGroup>
-    {type === "list"
+    {type === "multiple-choice"
+      ? <FormGroup>
+          <Input
+            value={choices}
+            question={"Choices? (seperate w/ commas)"}
+            handleChange={updateChoices}/>
+        </FormGroup>
+      : <div/>}
+    {type === "checkbox"
       ? <FormGroup>
           <Input
             value={choices}

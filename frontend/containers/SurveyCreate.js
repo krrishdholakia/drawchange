@@ -19,8 +19,6 @@ Structure of Survey Creation page:
 
 
 //for v2. : save questions to local storage. when submitted to db clear local-storage. this allows some form of auto-save
-
-
 */
 
 // NPM Packages

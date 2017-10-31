@@ -10,19 +10,11 @@ function SurveyRead({ questions }) {
                   case "checkbox-type":
 
                     return <p>{question.answer}</p>;
-                  case "text-type":
-
-                    return <p>{question.answer}</p>;
-
-                  case "paragraph-type":
+                  case "input-type":
                     return <p>{question.answer}</p>;
                   case "multiple-choice-type":
                     return <p>{question.answer}</p>;
-                  case "list-type":
-                    return <p>{question.answer}</p>;
                   case "scale-type":
-                    return <p>{question.answer}</p>;
-                  case "grid-type":
                     return <p>{question.answer}</p>;
                   case "date-type":
                     return <p>{question.answer}</p>;
