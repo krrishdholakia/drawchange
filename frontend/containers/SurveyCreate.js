@@ -28,21 +28,23 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { Col, Row, Panel, Button } from 'react-bootstrap';
 
-
 // Local Imports
 import NewQuestion from '../components/NewQuestion';
 import DisplayQuestion from '../components/DisplayQuestion';
+import SurveyConduct from './SurveyConduct';
 
 
 class SurveyCreate extends Component {
   constructor(props) {
     super(props);
+    this.questionArr = [];
     this.state = {
       type: '',
       name: '',
       choices: '',
       questions: []
     };
+    this.surveyResponse = this.surveyResponse.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateChoices = this.updateChoices.bind(this);
     this.updateType = this.updateType.bind(this);
@@ -87,6 +89,14 @@ class SurveyCreate extends Component {
     this.props.createNewSurvey(survey);
   }
 
+  surveyResponse() {
+    // this.context.router.push({
+    //   pathname: '/SurveyConduct',
+    //   state: {email: this.state.email}
+    // });
+    alert('jello');
+  }
+
   render() {
     return (
       <Row>
@@ -116,6 +126,7 @@ class SurveyCreate extends Component {
 
 
               <Button bsStyle="primary" onClick={this.saveSurvey}> Save Survey </Button>
+              <Button bsStyle="primary" onClick={() => {this.surveyResponse();}}> Move On </Button>
             </form>
           </Panel>
 
