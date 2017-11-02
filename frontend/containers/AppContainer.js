@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 // import { makeMainRoutes } from '../components/Routes';
 // import 'bootstrap/dist/css/bootstrap.css';
@@ -39,6 +40,15 @@ const AppContainer = () => {
           }
         ]}/> */}
       </BrowserRouter>
+=======
+import Title from '../components/Title';
+
+const AppContainer = ({ name }) => {
+  return (
+        <div>
+            <Title name={name} />
+        </div>
+>>>>>>> master
   );
 };
 

@@ -11,25 +11,31 @@ const router = express.Router();
 
 // Local Imports
 const User = require('../models/user');
-// const responses = require('./responses');
-// const survey = require('./survey');
-// const users = require('./users');
+const events = require('./events');
+const emails = require('./emails');
+const responses = require('./responses');
+const surveys = require('./surveys');
+const users = require('./users');
 
 // Middleware
 router.use(morgan('dev'));
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(session({
-    secret: process.env.SECRET,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    resave: false,
-    saveUninitialized: false
+  secret: process.env.SECRET,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  resave: true,
+  saveUninitialized: false
 }));
 
+// // Restful endpoints
+router.use('/responses', responses);
+router.use('/surveys', surveys);
+router.use('/users', users);
+router.use('/events', events);
+router.use('/emails', emails);
 
-router.get('/', (req, res) => {
-    res.send("Hello World");
-});
+
 
 module.exports = router;
 // Passport Config
@@ -100,9 +106,4 @@ module.exports = router;
 // router.get('/success', (req, res) => {
 //     res.json({ authenticated: true, user: req.user });
 // });
-
-// // Restful endpoints
-// router.use('/responses', responses);
-// router.use('/surveys', surveys);
-// router.use('/users', users);
 

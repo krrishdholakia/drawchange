@@ -6,6 +6,9 @@ const responseSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true
   },
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
   answers: {
     type: Array,
     required: true
@@ -13,4 +16,4 @@ const responseSchema = mongoose.Schema({
 }, { timestamps: true });
 
 // export Survey model to app
-module.exports = mongoose.model('Survey', responseSchema);
+module.exports = mongoose.model('Response', responseSchema);
