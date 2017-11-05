@@ -1,26 +1,3 @@
-// import React from 'react';
-
-/* the user has to be able to create the necessary forms. Until API is ready, clicking on the done button will
-open SurveyRead.js which will display sample text answers. This shall be improved in v2*/
-
-/*
-Structure of Survey Creation page:
-
-1) Box:
-    - Admin chooses question type:
-2) Box:
-    - Question to be asked
-    - If question type is of grid-type,scale-type,checkbox-type, list-type
-      the necessary box will be displayed requiring admin input
-3) Admin will be asked to save or add new questions,
-    - IF add questions:
-        - the previous question will be displayed on page as a static box with an edit button
-        - box-box-question structure will be repeated
-
-
-//for v2. : save questions to local storage. when submitted to db clear local-storage. this allows some form of auto-save
-*/
-
 // NPM Packages
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -52,16 +29,9 @@ class SurveyCreate extends Component {
     this.saveSurvey = this.saveSurvey.bind(this);
   }
 
-  updateName(e) {
-    this.setState({name: e.target.value});
+  componentWillMount() {
+    this.props.loadSurvey(this.props.match.params.id);
   }
-  updateChoices(e) {
-    this.setState({choices: e.target.value});
-  }
-  updateType(e) {
-    this.setState({type: e.target.value});
-  }
-
   addQuestion() {
     const questions = this.state.questions.slice();
     questions.push({
@@ -125,8 +95,8 @@ class SurveyCreate extends Component {
               </Panel>
 
 
-              <Button bsStyle="primary" onClick={this.saveSurvey}> Save Survey </Button>
-              <Button bsStyle="primary" onClick={() => {this.surveyResponse();}}> Move On </Button>
+              <Button bsStyle="primary" onClick={this.props.onUpdateAddQuestionChange()}> Save Survey </Button>
+              {/* <Button bsStyle="primary" onClick={() => {this.surveyResponse();}}> Move On </Button> */}
             </form>
           </Panel>
 
@@ -141,15 +111,15 @@ SurveyCreate.propTypes = {
   createNewSurvey: PropTypes.func
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     uploader: state.auth.user._id
-//   };
-// // };
+const mapStateToProps = (state) => {
+  return {
+    uploader: state.auth.user._id
+  };
+// };
 
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators(actions, dispatch);
-// }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
+}
 
 export default SurveyCreate;
 
