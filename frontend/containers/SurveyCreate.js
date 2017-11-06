@@ -9,6 +9,7 @@ import { Col, Row, Panel, Button } from 'react-bootstrap';
 import NewQuestion from '../components/NewQuestion';
 import DisplayQuestion from '../components/DisplayQuestion';
 import SurveyConduct from './SurveyConduct';
+import * as actions from '../actions/question.js';
 
 
 class SurveyCreate extends Component {
@@ -29,9 +30,20 @@ class SurveyCreate extends Component {
     this.saveSurvey = this.saveSurvey.bind(this);
   }
 
-  componentWillMount() {
-    this.props.loadSurvey(this.props.match.params.id);
+//   componentWillMount() {
+//     this.props.loadSurvey(this.props.match.params.id);
+//   }
+
+  updateName(e) {
+    this.setState({name: e.target.value});
   }
+  updateChoices(e) {
+    this.setState({choices: e.target.value});
+  }
+  updateType(e) {
+    this.setState({type: e.target.value});
+  }
+
   addQuestion() {
     const questions = this.state.questions.slice();
     questions.push({
@@ -115,7 +127,7 @@ const mapStateToProps = (state) => {
   return {
     uploader: state.auth.user._id
   };
-// };
+};
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch);

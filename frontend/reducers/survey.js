@@ -1,20 +1,23 @@
 import * as types from '../actions/types';
 
-const initialQuestion = {
-  type: "",
+const initialQuestionColl = [];
 
-  text: "",
+function survey(state = initialQuestionColl, action) {
+  switch(action.types) {
+    case types.ADD_QUESTION:
+      const questions = state.questions.slice();
+      questions.push({
+        type: action.type,
+        text: action.text,
+        choices: action.choices,
+        answer: null
+      });
+      return questions;
 
-  choices: "",
-
-  answer: "",
-
-};
-
-function survey(state = initialQuestion, action) {
-  const questions = [];
-  questions = state;
-  questions.append(action);
+    default:
+      return state;
+  }
 }
 
 export default survey;
+
