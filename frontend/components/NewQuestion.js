@@ -8,13 +8,13 @@ import Input from './Input';
 import DropDown from './DropDown';
 
 // New Question  Component
-const NewQuestion = ({ type, name, choices, updateName, updateChoices, updateType, addQuestion }) => (
+const NewQuestion = ({ type, text, choices, updateText, updateChoices, updateType, addQuestion }) => (
   <Panel header={<h4>New Question</h4>} bsStyle="success">
     <FormGroup>
       <Input
-        value={name}
+        value={text}
         question={"Question to add?"}
-        handleChange={updateName}/>
+        handleChange={updateText}/>
     </FormGroup>
     <FormGroup>
       <DropDown
@@ -46,10 +46,10 @@ const NewQuestion = ({ type, name, choices, updateName, updateChoices, updateTyp
 
 NewQuestion.propTypes = {
   type: PropTypes.string,
-  name: PropTypes.string,
+  text: PropTypes.string,
   choices: PropTypes.string,
   updateType: PropTypes.func,
-  updateName: PropTypes.func,
+  updateText: PropTypes.func,
   updateChoices: PropTypes.func,
   addQuestion: PropTypes.func,
 };

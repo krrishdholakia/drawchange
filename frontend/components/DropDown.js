@@ -12,7 +12,7 @@ class DropDown extends React.Component {
 
   updateValue(e) {
     if (e.target.value !== "----") {
-      this.props.handleChange(e);
+      this.props.handleChange(e.target.value);
     }
   }
 

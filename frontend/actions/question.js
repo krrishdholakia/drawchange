@@ -14,23 +14,23 @@ import * as types from './types.js';
 //   };
 // }
 
-export function onUpdateQuestionTypeChange(questionType) {
+export function questionTypeChange(questionType) {
   return { type: types.UPDATE_QUESTION_TYPE, questionType };
 }
 
-export function onUpdateQuestionTextChange(text) {
+export function questionTextChange(text) {
   return { type: types.UPDATE_QUESTION_TEXT, text };
 }
 
-export function onUpdateQuestionChoicesChange(choices) {
+export function questionChoicesChange(choices) {
   return { type: types.UPDATE_QUESTION_CHOICES, choices };
 }
 
-export function onUpdateQuestionAnswerChange(choices) {
+export function questionAnswerChange(choices) {
   return { type: types.UPDATE_QUESTION_ANSWER, choices };
 }
 
-export function onAddQuestion() {
+export function addQuestion() {
   const id = generate();
   return { type: types.ADD_QUESTION, id };
 }

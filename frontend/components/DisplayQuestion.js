@@ -7,7 +7,7 @@ const DisplayQuestion = ({ question, index }) => (
     <h4>Question #{index + 1}</h4>
     <ul>
       <li>Type: {question.type}</li>
-      <li>Message: {question.name}</li>
+      <li>Message: {question.text}</li>
       {question.type === "multiple-choice" || question.type === "checkbox" ? <li>Choices: {question.choices}</li> : <span/>}
     </ul>
   </div>

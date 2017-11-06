@@ -1,0 +1,16 @@
+webpackHotUpdate(0,{
+
+/***/ 364:
+/* no static exports found */
+/* all exports used */
+/*!**************************************!*\
+  !*** ./frontend/components/Input.js ***!
+  \**************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ 0);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _propTypes = __webpack_require__(/*! prop-types */ 1);\n\nvar _propTypes2 = _interopRequireDefault(_propTypes);\n\nvar _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 101);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// React Input Text Component\nvar Input = function Input(_ref) {\n  var value = _ref.value,\n      handleChange = _ref.handleChange,\n      question = _ref.question;\n  return _react2.default.createElement(\n    'div',\n    null,\n    _react2.default.createElement(\n      _reactBootstrap.ControlLabel,\n      null,\n      question\n    ),\n    _react2.default.createElement(_reactBootstrap.FormControl, {\n      type: 'text',\n      value: value,\n      placeholder: 'Enter text',\n      onChange: function onChange(e) {\n        console.log('testing');handleChange(e);\n      }\n    })\n  );\n}; // NPM Imports\n\n\nInput.propTypes = {\n  value: _propTypes2.default.string,\n  handleChange: _propTypes2.default.func,\n  question: _propTypes2.default.string\n};\n\nexports.default = Input;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMzY0LmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vL2Zyb250ZW5kL2NvbXBvbmVudHMvSW5wdXQuanM/N2M1OSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBOUE0gSW1wb3J0c1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5pbXBvcnQgeyBDb250cm9sTGFiZWwsIEZvcm1Db250cm9sIH0gZnJvbSAncmVhY3QtYm9vdHN0cmFwJztcblxuLy8gUmVhY3QgSW5wdXQgVGV4dCBDb21wb25lbnRcbmNvbnN0IElucHV0ID0gKHsgdmFsdWUsIGhhbmRsZUNoYW5nZSwgcXVlc3Rpb24gfSkgPT4gKFxuICA8ZGl2PlxuICAgIDxDb250cm9sTGFiZWw+e3F1ZXN0aW9ufTwvQ29udHJvbExhYmVsPlxuICAgIDxGb3JtQ29udHJvbFxuICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgdmFsdWU9e3ZhbHVlfVxuICAgICAgcGxhY2Vob2xkZXI9XCJFbnRlciB0ZXh0XCJcbiAgICAgIG9uQ2hhbmdlPXsoZSkgPT4ge2NvbnNvbGUubG9nKCd0ZXN0aW5nJyk7IGhhbmRsZUNoYW5nZShlKTt9fVxuICAgIC8+XG4gIDwvZGl2PlxuKTtcblxuXG5JbnB1dC5wcm9wVHlwZXMgPSB7XG4gIHZhbHVlOiBQcm9wVHlwZXMuc3RyaW5nLFxuICBoYW5kbGVDaGFuZ2U6IFByb3BUeXBlcy5mdW5jLFxuICBxdWVzdGlvbjogUHJvcFR5cGVzLnN0cmluZ1xufTtcblxuXG5leHBvcnQgZGVmYXVsdCBJbnB1dDtcblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gZnJvbnRlbmQvY29tcG9uZW50cy9JbnB1dC5qcyJdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQ0E7QUFDQTs7O0FBQUE7QUFDQTs7O0FBQUE7QUFDQTs7O0FBQ0E7QUFDQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQ0E7QUFBQTtBQUNBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFBQTtBQUpBO0FBRkE7QUFEQTtBQUNBO0FBQ0E7QUFXQTtBQUNBO0FBQ0E7QUFDQTtBQUhBO0FBQ0E7QUFNQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///364\n");
+
+/***/ })
+
+})

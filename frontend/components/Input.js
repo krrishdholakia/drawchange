@@ -11,7 +11,7 @@ const Input = ({ value, handleChange, question }) => (
       type="text"
       value={value}
       placeholder="Enter text"
-      onChange={(e) => handleChange(e)}
+      onChange={(e) => handleChange(e.target.value) }
     />
   </div>
 );
