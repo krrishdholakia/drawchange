@@ -1,17 +1,15 @@
 import * as types from '../actions/types';
 
-const initialQuestion = {
-  type: "",
-
+const initialState = {
   text: "",
-
+  type: "",
   choices: "",
-
   answer: "",
-
+  id: "",
+  byId: {}
 };
 
-function question(state = initialQuestion, action) {
+function question(state = initialState, action) {
   switch(action.type) {
     case types.UPDATE_QUESTION_TYPE:
       return Object.assign({}, state, {
@@ -25,10 +23,24 @@ function question(state = initialQuestion, action) {
       return Object.assign({}, state, {
         choices: action.choices
       });
-    // case types.UPDATE_ADD_QUESTION:
-    //   return Object.assign({}, state, {
-    //     question: action.question
-    //   });
+    case types.LOAD_QUESTION:
+      return Object.assign({}, state, {
+        text: action.text,
+        type: action.type,
+        choices: action.choices,
+        answer: action.answer,
+        id: action.id
+      });
+    case types.ADD_QUESTION:
+      const newQuestion = {
+        text: state.text,
+        type: state.type,
+        choices: state.choices,
+        answer: state.answer
+      };
+      const byId = Object.assign({}, state.byId);
+      byId[action.id] = newQuestion;
+      return Object.assign({}, initialState, {byId});
     default:
       return state;
   }
