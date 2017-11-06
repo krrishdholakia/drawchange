@@ -12,17 +12,11 @@ const initialState = {
 function question(state = initialState, action) {
   switch(action.type) {
     case types.UPDATE_QUESTION_TYPE:
-      return Object.assign({}, state, {
-        type: action.questionType
-      });
+      return Object.assign({}, state, { type: action.questionType });
     case types.UPDATE_QUESTION_TEXT:
-      return Object.assign({}, state, {
-        text: action.text,
-      });
+      return Object.assign({}, state, { text: action.text });
     case types.UPDATE_QUESTION_CHOICES:
-      return Object.assign({}, state, {
-        choices: action.choices
-      });
+      return Object.assign({}, state, { choices: action.choices });
     case types.LOAD_QUESTION:
       return Object.assign({}, state, {
         text: action.text,
