@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import InlineItem from './InlineItem';
-import '../assets/stylesheets/ItemDisplay.css';
 
 class ItemList extends React.Component {
   constructor(props) {
@@ -11,7 +10,7 @@ class ItemList extends React.Component {
 
   renderItem() {
     return (
-      <div className="ItemList">
+      <div className="ItemList__list">
         { this.props.items.map((item) => (
           <InlineItem
             name = {item.name}
@@ -28,13 +27,11 @@ class ItemList extends React.Component {
 
   render() {
     return (
-      <div>
-      <h1>
-          Item Page
-      </h1>
-      <div>
-          {this.renderItem()}
-      </div>
+      <div className="ItemList">
+        <h1 className="ItemList__title">
+            Item Page
+        </h1>
+        {this.renderItem()}
       </div>
     );
   }

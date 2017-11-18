@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../assets/stylesheets/ItemDisplay.css';
-
 class InlineItem extends React.Component {
   constructor(props) {
     super(props);
@@ -10,18 +8,18 @@ class InlineItem extends React.Component {
 
   render() {
     return(
-            <div className="singleItem" onClick= {()=>this.props.updateCurrentEvent(this.props.id)}>
+            <div className="InlineItem" onClick= {()=>this.props.updateCurrentEvent(this.props.id)}>
 
-                <div className="itemName">
+                <div className="InlineItem__name">
                     {this.props.name}
                 </div>
-                <div className="itemDate">
+                <div className="InlineItem__date">
                     {this.props.date}
                 </div>
-                <div className="itemLocation">
+                <div className="InlineItem__location">
                     {this.props.location}
                 </div>
-                <div className="itemDescription" >
+                <div className="InlineItem__description" >
                     {this.props.description}
                 </div>
             </div>

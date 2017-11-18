@@ -1,0 +1,50 @@
+body {
+	font-family: sans-serif;
+}
+
+.MainContainer {
+	/*background: #DDD;*/
+	margin: 0 auto;
+	margin-top: 50px;
+	max-width: 1800px;
+	width: 90%;
+	display: flex;
+}
+
+.LeftPane {
+	flex: 1 auto;
+	width: 30%;
+	/*background: rgba(255,0,0,0.3);*/
+	padding: 20px;
+}
+
+.MainPane {
+	flex: 1 auto;
+	width: 70%;
+	padding: 20px;
+}
+
+.MainPane__content {
+	background: #DDD;
+	padding: 20px;
+	border-radius: 10px;
+	height: calc(100% - 40px);
+}
+
+.ItemList {
+}
+
+.ItemList__list {
+	background: #DDD;
+	padding: 0 20px;
+	border-radius: 10px;
+}
+
+.InlineItem {
+	padding: 20px 0;
+	border-bottom: 2px solid #999;
+}
+
+.InlineItem:last-of-type {
+	border-bottom: none;
+}

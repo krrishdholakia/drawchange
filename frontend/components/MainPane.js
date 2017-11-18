@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 
 import React from 'react';
-import '../assets/stylesheets/ItemDisplay.css';
 
 // var MainPane = React.createClass({
 //   render: function() {
@@ -29,12 +28,14 @@ class MainPane extends React.Component {
   render() {
     console.log(this.props.currentItem);
     return (
-              <div className="spaceside">
-                  <h1>{ this.props.currentItem ? this.props.currentItem._id : "None Selected" }</h1>
-              </div>
+      <div className="MainPane">
+        <div className="MainPane__content">
+          { this.props.currentItem ? this.props.currentItem._id : "None Selected" }
+        </div>
+      </div>
     );
   }
-  }
+}
 
 MainPane.propTypes = {
   currentItem: PropTypes.any
