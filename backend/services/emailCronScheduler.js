@@ -22,6 +22,9 @@ Email.find({is_sent: false})
               console.log(err);
             });
           }
+        })
+        .catch(error => {
+          console.log(error);
         });
     }
   });
