@@ -1,36 +1,69 @@
 import PropTypes from 'prop-types';
-import React from 'react';
-import { connect } from 'react-redux';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
-import MainContainer from './MainContainer.js';
-const AppContainer = () => {
-  return (
-        <BrowserRouter>
-            <div>
-                <Route path="/homeScreen"
-                component={MainContainer}/>
-            </div>
-        </BrowserRouter>
-  );
-};
+import Splash from './Splash';
+import MainContainer from './MainContainer';
+import SurveyForm from './forms/SurveyForm';
+
+import Navbar from '../components/Navbar';
+
+import * as actions from '../actions/auth';
+
+
+class AppContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    this._login = this._login.bind(this);
+    this._register = this._register.bind(this);
+    this._home = this._home.bind(this);
+  }
+
+  _login() {
+    return ( this.props.user ? <Redirect to={'/'} /> : <Splash /> );
+  }
+  _register() {
+    return (this.props.user ? <Redirect to={'/'} /> : <SurveyForm />);
+  }
+  _home() {
+    return (this.props.user ? <MainContainer /> : <Redirect to={'/login'} />);
+  }
+
+  render() {
+    return (
+      <div>
+        <Navbar logoutAction={this.props.logout} />
+        <Switch>
+          <Route exact path={'/login'} render={this._login}/>
+          <Route exact path={'/register'} render={this._register} />
+          <Route path={'/*'} render={this._home}/>
+        </Switch>
+      </div>
+
+    );
+  }
+}
+
 
 AppContainer.propTypes = {
-  name: PropTypes.string,
+  logout: PropTypes.func,
+  user: PropTypes.object,
 };
 
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
   return {
-    name: state.name
+    user: state.auth.user,
   };
-};
+}
 
-const mapDispatchToProps = (/* dispatch */) => {
-  return {
-  };
-};
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
+}
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(AppContainer);
+)(AppContainer));

@@ -13,8 +13,6 @@ const router = express.Router();
 const User = require('../models/user');
 const events = require('./events');
 const emails = require('./emails');
-const responses = require('./responses');
-const surveys = require('./surveys');
 const users = require('./users');
 
 // Middleware
@@ -35,8 +33,8 @@ router.use(passport.session());
 passport.use(new LocalStrategy({
   usernameField: 'email',
 },
-  function (email, password, done) {
-    User.findOne({ email }, function (err, user) {
+  function(email, password, done) {
+    User.findOne({ "bio.email": email }, function(err, user) {
       if (err) return done(err);
       if (!user || !user.verifyPassword(password)) {
         return done(null, false, { message: 'Login Error.' });
@@ -61,8 +59,8 @@ router.post('/login', (req, res) => {
   passport.authenticate('local', (errors, user) => {
     req.logIn(user, () => {
       if (errors) return res.status(500).json({ errors });
-      return res.status(user ? 200 : 400).json(user ? user : { errors: "Login Failed" });
-    })
+      return res.status(user ? 200 : 400).json(user ? { user } : { errors: "Login Failed" });
+    });
   })(req, res);
 });
 
@@ -74,14 +72,12 @@ router.get('/logout', (req, res) => {
 
 router.use('/users', users);
 
-//************** LOGIN WALL *******************
+//* ************* LOGIN WALL *******************
 router.use((req, res, next) => {
   return req.user ? next() : res.status(401).send('YOU MUST BE AUTHENTICATED TO ACCESS THIS ROUTE');
 });
 
 // Restful endpoints
-router.use('/responses', responses);
-router.use('/surveys', surveys);
 router.use('/events', events);
 router.use('/emails', emails);
 
